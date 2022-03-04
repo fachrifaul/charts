@@ -202,11 +202,11 @@ class ChartContainerRenderObject<D> extends RenderCustomPaint
 
     // Sometimes chart behaviors try to draw the chart outside of a Flutter draw
     // cycle. Schedule a frame manually to handle these cases.
-    if (!SchedulerBinding.instance!.hasScheduledFrame) {
-      SchedulerBinding.instance!.scheduleFrame();
+    if (!(SchedulerBinding.instance?.hasScheduledFrame == false)) {
+      SchedulerBinding.instance?.scheduleFrame();
     }
 
-    SchedulerBinding.instance!.addPostFrameCallback(startAnimationController);
+    SchedulerBinding.instance?.addPostFrameCallback(startAnimationController);
   }
 
   /// Request Flutter to rebuild the widget/container of chart.
